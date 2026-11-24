@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Travel Guide Journal | Luxury Travel Inspiration</title>
+<meta name="description" content="Travel Guide Journal – Discover destinations, travel stories and travel inspiration.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://travelguidejournal.github.io/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark: #171a18;
+  --gold: #b69a68;
+  --ivory: #f7f5ef;
+  --white: #ffffff;
+  --grey: #77766f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.topbar {
+  background: var(--dark);
+  color: #ddd;
+  text-align: center;
+  padding: 10px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+header {
+  background: var(--ivory);
+  padding: 24px 7%;
+  border-bottom: 1px solid #e5e0d5;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color .3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 660px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.05)),
+    url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=2000')
+    center/cover;
+  display: flex;
+  align-items: center;
+  padding: 90px 10%;
+  color: white;
+}
+
+.hero-content { max-width: 700px; }
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #dfc99f;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 1.12;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.9;
+  max-width: 480px;
+  color: #eee;
+  margin-bottom: 35px;
+}
+
+.gold-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: var(--gold);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.gold-button:hover {
+  background: white;
+  color: var(--dark);
+}
+
+.section {
+  padding: 100px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-heading .eyebrow {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+}
+
+.section-heading p {
+  color: var(--grey);
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.destination {
+  position: relative;
+  height: 390px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.destination img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s;
+}
+
+.destination:hover img { transform: scale(1.06); }
+
+.destination::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 35%, rgba(0,0,0,.65));
+}
+
+.destination h3 {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  left: 25px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.featured {
+  background: #ebe7dc;
+}
+
+.featured-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.featured-image {
+  height: 480px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-text .eyebrow { color: var(--gold); }
+
+.featured-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 43px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.featured-text p {
+  color: var(--grey);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 28px;
+}
+
+.text-link {
+  display: inline-block;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 7px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.article-card {
+  background: white;
+}
+
+.article-image {
+  height: 260px;
+  overflow: hidden;
+  background: #dedbd2;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.article-card:hover img { transform: scale(1.05); }
+
+.article-info { padding: 25px; }
+
+.article-info .category {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.article-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 13px 0;
+}
+
+.article-info p {
+  color: var(--grey);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.about {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 100px 15%;
+}
+
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: #c7c7c0;
+  line-height: 2;
+  font-size: 14px;
+}
+
+footer {
+  background: #111311;
+  color: white;
+  padding: 65px 8% 25px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding-bottom: 45px;
+}
+
+.footer-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.footer-content p,
+.footer-content a {
+  color: #aaa;
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright {
+  border-top: 1px solid #333;
+  padding-top: 22px;
+  text-align: center;
+  color: #888;
+  font-size: 11px;
+}
+
+@media(max-width: 850px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .destination-grid,
+  .articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 550px) {
+  .destination-grid,
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero { min-height: 530px; }
+
+  .section { padding: 65px 6%; }
+
+  .destination { height: 350px; }
+
+  .featured-text h2 { font-size: 34px; }
+
+  .about { padding: 70px 8%; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  THE ART OF DISCOVERING THE WORLD
+</div>
+
+<header>
+<nav class="nav">
+  <a href="/" class="logo">
+    TRAVEL GUIDE <span>JOURNAL</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#stories">Travel Guides</a></li>
+    <li><a href="#featured">Stories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A JOURNAL FOR THE CURIOUS TRAVELLER</div>
+
+    <h1>Your Journey.<br>Your World.<br>Your Story.</h1>
+
+    <p>
+      <!-- ADD YOUR OWN HERO DESCRIPTION HERE -->
+      Add your brand introduction here.
+    </p>
+
+    <a href="#destinations" class="gold-button">
+      Discover More
+    </a>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="section" id="destinations">
+
+  <div class="section-heading">
+    <div class="eyebrow">EXPLORE THE WORLD</div>
+    <h2>Discover Destinations</h2>
+    <p>Add your destination categories and links here.</p>
+  </div>
+
+  <div class="destination-grid">
+
+    <!-- Replace images and destination names -->
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=900" alt="Destination">
+      <h3>Europe</h3>
+    </a>
+
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=900" alt="Destination">
+      <h3>Asia</h3>
+    </a>
+
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900" alt="Destination">
+      <h3>Middle East</h3>
+    </a>
+
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900" alt="Destination">
+      <h3>Africa</h3>
+    </a>
+
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=900" alt="Destination">
+      <h3>Oceania</h3>
+    </a>
+
+    <a href="#" class="destination">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900" alt="Destination">
+      <h3>Americas</h3>
+    </a>
+
+  </div>
+</section>
+
+<!-- FEATURED CONTENT -->
+<section class="section featured" id="featured">
+
+  <div class="featured-layout">
+    <div class="featured-image">
+      <!-- Replace with your featured image -->
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200" alt="Featured travel destination">
+    </div>
+
+    <div class="featured-text">
+      <div class="eyebrow">EDITOR'S SELECTION</div>
+      <h2>Your Featured Travel Story</h2>
+      <p>
+        Add your own featured article introduction here.
+        Link this section to your selected travel article.
+      </p>
+      <a href="#" class="text-link">Read the Story</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ARTICLE COLLECTION -->
+<section class="section" id="stories">
+
+  <div class="section-heading">
+    <div class="eyebrow">THE TRAVEL JOURNAL</div>
+    <h2>Latest Travel Stories</h2>
+    <p>Your published travel articles will appear in this section.</p>
+  </div>
+
+  <div class="articles-grid">
+
+    <!-- Duplicate this article card for each post -->
+
+    <article class="article-card">
+      <a href="#">
+        <div class="article-image">
+          <img src="YOUR-ARTICLE-IMAGE-URL" alt="Your article image">
+        </div>
+        <div class="article-info">
+          <div class="category">Travel Guide</div>
+          <h3>Your Article Title</h3>
+          <p>Add your article summary here.</p>
+        </div>
+      </a>
+    </article>
+
+    <article class="article-card">
+      <a href="#">
+        <div class="article-image">
+          <img src="YOUR-ARTICLE-IMAGE-URL" alt="Your article image">
+        </div>
+        <div class="article-info">
+          <div class="category">Destination Guide</div>
+          <h3>Your Article Title</h3>
+          <p>Add your article summary here.</p>
+        </div>
+      </a>
+    </article>
+
+    <article class="article-card">
+      <a href="#">
+        <div class="article-image">
+          <img src="YOUR-ARTICLE-IMAGE-URL" alt="Your article image">
+        </div>
+        <div class="article-info">
+          <div class="category">Travel Inspiration</div>
+          <h3>Your Article Title</h3>
+          <p>Add your article summary here.</p>
+        </div>
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="eyebrow">OUR PHILOSOPHY</div>
+  <h2>About Travel Guide Journal</h2>
+  <p>
+    <!-- ADD YOUR OWN ABOUT CONTENT HERE -->
+    Introduce your travel journal and its purpose here.
+  </p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+
+  <div class="footer-content">
+
+    <div>
+      <h3>Travel Guide Journal</h3>
+      <p>Your travel brand introduction goes here.</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <a href="#destinations">Destinations</a>
+      <a href="#stories">Travel Guides</a>
+      <a href="#featured">Travel Stories</a>
+    </div>
+
+    <div class="footer-links">
+      <h3>Information</h3>
+      <a href="#about">About Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Travel Guide Journal. All Rights Reserved.
+  </div>
+
+</footer>
+
+</body>
+</html>
