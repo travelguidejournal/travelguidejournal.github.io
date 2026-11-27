@@ -1,9 +1,10 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://travelguidejournal.github.io/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-27</lastmod>
   </url>
 
   <url>
@@ -11,8 +12,17 @@
     <lastmod>2026-11-24</lastmod>
   </url>
 
-<url>
+  <url>
+    <loc>https://travelguidejournal.github.io/dubai-city-tour-burj-khalifa-desert-safari.html</loc>
+  </url>
+
+  <url>
+    <loc>https://travelguidejournal.github.io/dubai-heritage-tour.html</loc>
+  </url>
+
+  <url>
     <loc>https://travelguidejournal.github.io/discover-perfect-desert-hideaway-romantic-dinner.html</loc>
     <lastmod>2026-11-27</lastmod>
-</url>
+  </url>
+
 </urlset>
